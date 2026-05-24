@@ -86,3 +86,4 @@ jobs:
         replacesArtifacts: false
         omitBodyDuringUpdate: true
         tag: ${{ steps.release.outputs.release }}
+ 
