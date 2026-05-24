@@ -8,7 +8,6 @@ pluginManagement {
 
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
         maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev/")
-        maven("https://maven.hq.hydraulic.software")
 //        maven("file:libs/")
     }
 }
@@ -32,7 +31,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SamloaderKotlin"
-include(":android")
-include(":desktop")
+rootProject.name = "Bifrost"
+include(":app")
 include(":common")
