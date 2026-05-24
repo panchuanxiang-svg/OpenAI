@@ -45,7 +45,7 @@ android {
         this.versionCode = versionCode
         this.versionName = versionName
 
-        resValue("string", "app_name", "\${rootProject.extra[\"appName\"]}")
+        resValue("string", "app_name", "${rootProject.extra["appName"]}")
     }
 
     namespace = packageName
@@ -100,6 +100,6 @@ kotlin {
 
 afterEvaluate {
     base {
-        archivesName.set("samsung-firmware-downloader-\${android.defaultConfig.versionName}")
+        archivesName.set("samsung-firmware-downloader-${android.defaultConfig.versionName}")
     }
 }

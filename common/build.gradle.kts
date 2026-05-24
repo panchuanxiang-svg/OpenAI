@@ -1,5 +1,4 @@
-import org.gradle.kotlin.dsl.androidComponents
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
 
 plugins {
     alias(libs.plugins.android.library)
@@ -16,7 +15,6 @@ version = rootProject.extra["versionName"].toString()
 android {
     val compileSdk: Int by rootProject.extra
     val minSdk: Int by rootProject.extra
-    val packageName: String by rootProject.extra
 
     this.compileSdk = compileSdk
 
@@ -110,15 +108,9 @@ buildkonfig {
     exposeObjectWithName = objectName
 
     defaultConfigs {
-        buildConfigField(com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING, "versionName", "\${rootProject.extra[\"versionName\"]}")
-        buildConfigField(com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING, "versionCode", "\${rootProject.extra[\"versionCode\"]}")
-        buildConfigField(com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING, "appName", "\${rootProject.extra[\"appName\"]}")
-        buildConfigField(com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING, "bugsnagAndroidApiKey", "\${rootProject.extra[\"bugsnagAndroidApiKey\"]}")
-    }
-}
-
-androidComponents {
-    onVariants { variant ->
-        variant.sources.res?.addStaticSourceDirectory("generated/moko/androidMain/res")
+        buildConfigField(STRING, "versionName", "${rootProject.extra["versionName"]}")
+        buildConfigField(STRING, "versionCode", "${rootProject.extra["versionCode"]}")
+        buildConfigField(STRING, "appName", "${rootProject.extra["appName"]}")
+        buildConfigField(STRING, "bugsnagAndroidApiKey", "${rootProject.extra["bugsnagAndroidApiKey"]}")
     }
 }
